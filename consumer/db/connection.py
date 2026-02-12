@@ -1,5 +1,3 @@
-"""MySQL database connection pool."""
-
 from contextlib import contextmanager
 from mysql.connector import (pooling,
                               Error)
@@ -28,6 +26,9 @@ class Database:
             pool_size=5, 
             **config
             )
+        
+        cls.init_tables()
+        
     @classmethod
     def init_tables(cls):
         with cls.get_cursor() as cursor:

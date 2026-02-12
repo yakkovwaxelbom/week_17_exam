@@ -15,7 +15,7 @@ TABLES = [
         salesRepEmployeeNumber INT,
         creditLimit DECIMAL(15,2),
 
-        PRIMARY KEY (customerNumber),
+        PRIMARY KEY (customerNumber)
     );
     """,
 
@@ -35,7 +35,7 @@ TABLES = [
             FOREIGN KEY (customerNumber)
             REFERENCES customers(customerNumber)
             ON DELETE CASCADE
-            ON UPDATE CASCADE,
+            ON UPDATE CASCADE
     );
     """
 ]

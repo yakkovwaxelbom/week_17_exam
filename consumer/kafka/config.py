@@ -1,13 +1,14 @@
-from pydantic import BaseModel, Field
+from pydantic import Field
+from pydantic_settings import BaseSettings
 
-class KafkaConsumerConfig(BaseModel):
+class KafkaConsumerConfig(BaseSettings):
 
     KAFKA_BOOTSTRAP_SERVERS: str = Field(
         "127.0.0.1:9092", alias="bootstrap.servers"
     )
 
     KAFKA_GROUP_ID: str = Field(
-        "mysql-analytics-service", alias="group.id"
+        "mysql-service", alias="group.id"
     )
 
     KAFKA_CLIENT_ID: str = Field(
@@ -25,13 +26,6 @@ class KafkaConsumerConfig(BaseModel):
     session_timeout_ms: int = Field(
         45000, alias="session.timeout.ms"
     )
-    # max_poll_interval_ms: int = Field(
-    #     300000, alias="max.poll.interval.ms"
-    # )
-
-    # max_poll_records: int = Field(
-    #     100, alias="max.poll.records"
-    # )
 
     class Config:
         validate_by_name = True
