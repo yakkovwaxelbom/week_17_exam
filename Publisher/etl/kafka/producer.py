@@ -15,10 +15,10 @@ class KafkaProducer:
         pass
 
     @classmethod
-    def send(cls, event_type: str, value: dict[str, Any]) -> None:
+    def send(cls, type: str, value: dict[str, Any]) -> None:
         
         event = {
-            "event_type": event_type,
+            "type": event_type,
             "data": value}
 
         event = json.dumps(event).encode("utf-8")
