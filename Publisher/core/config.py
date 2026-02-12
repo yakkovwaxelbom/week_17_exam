@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     MONGODB_URL: str = 'mongodb://localhost:27017'
     DATABASE_NAME: str = "dev"
 
-    COOL: str = 'employees'
+    COOL: str = 'customers_orders'
 
     DATA_PATH: str = './data/suspicious_customers_orders.json'
 
