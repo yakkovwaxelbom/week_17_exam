@@ -14,7 +14,8 @@ def main():
 
     db = MongoManager.get_db()
 
-    while (data := ExtractFromMongo(db, settings.COOL).pagination(BACH)) != None:
+    extractor = ExtractFromMongo(db, settings.COOL)
+    while (data := list(extractor.pagination(BACH))) != []:
 
         for doc in data:
             KafkaProducer.send(doc['type'], doc)
