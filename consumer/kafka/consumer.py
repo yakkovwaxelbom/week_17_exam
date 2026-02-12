@@ -42,8 +42,8 @@ class KafkaConsumer:
     def start(self) -> None:
         self._running = True
 
-        signal.signal(signal.SIGINT, )
-        signal.signal(signal.SIGTERM, )
+        signal.signal(signal.SIGINT, self.stop)
+        signal.signal(signal.SIGTERM, self.stop)
 
         while self._running:
             try:
