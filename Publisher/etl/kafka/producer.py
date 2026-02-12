@@ -18,7 +18,7 @@ class KafkaProducer:
     def send(cls, type: str, value: dict[str, Any]) -> None:
         
         event = {
-            "type": event_type,
+            "type": type,
             "data": value}
 
         event = json.dumps(event).encode("utf-8")
