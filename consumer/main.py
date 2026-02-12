@@ -5,7 +5,7 @@ from consumers.orders import Orders
 from kafka.consumer import KafkaConsumer
 
 
-TOPIC = 'week_17_exam'
+TOPIC = ['week_17_exam']
 
 def main():
 
