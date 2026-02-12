@@ -2,7 +2,7 @@ from db.connection import Database
 
 class Orders:
 
-    def insert(doc):
+    def insert(self, doc):
 
         q = """
             INSERT INTO orders (
