@@ -35,8 +35,8 @@ class Database:
             for table in TABLES:
                 cursor.execute(table)
 
-    @contextmanager
     @classmethod
+    @contextmanager
     def get_cursor(cls):
 
         cnx = None
