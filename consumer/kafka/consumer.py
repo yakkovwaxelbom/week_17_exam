@@ -1,17 +1,15 @@
 """Kafka consumer for subscribing to domain events."""
 
 import json
-import logging
 import signal
 from typing import Callable, Optional
 
 from confluent_kafka import Consumer, KafkaError
 
-from src.kafka.config import config as consumer_config
-from src.kafka.topics import Topic
+from kafka.config import config as consumer_config
+from kafka.topics import Topic
 
 
-logger = logging.getLogger(__name__)
 
 
 class KafkaConsumer:
