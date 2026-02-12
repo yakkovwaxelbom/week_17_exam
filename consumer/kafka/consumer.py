@@ -2,6 +2,8 @@ import signal
 from typing import Callable
 from confluent_kafka import Consumer
 from kafka.config import config as consumer_config
+import json
+
 
 
 class KafkaConsumer:
