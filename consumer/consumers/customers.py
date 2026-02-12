@@ -3,7 +3,7 @@ from db.connection import Database
 class Customers:
 
 
-    def insert(doc):
+    def insert(self, doc):
 
         q = """
             INSERT INTO customers (
