@@ -18,17 +18,18 @@ class KafkaConsumer:
     
 
     def _process_message(self, msg) -> None:
-        try:
-            value = msg.value().decode("utf-8")
+        value = msg.value().decode("utf-8")
+        value = json.loads(value)
 
-        except Exception as e:
+        type = value.get("type", None)
+        data = value.get('data', {})
+
+        if type is None:
             return
         
-        event_type = value.get("type", None)
+        handler = self._handlers.get(type, None)
         
-        handler = self._handlers.get(event_type, None)
-        
-        handler(value)
+        handler(data)
         
 
     def _handle_error(self, msg) -> bool:
