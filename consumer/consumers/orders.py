@@ -25,4 +25,4 @@ class Orders:
 
     
     def handlers(self):
-        return {'customer': self.insert}
+        return {'orders': self.insert}
