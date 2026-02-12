@@ -1,11 +1,8 @@
-"""Kafka producer for sending events to topics."""
-
 import json
 from typing import Any, Optional, Dict
-
 from confluent_kafka import Producer, Message, KafkaError
 
-from kafka.config import config as kafka_config
+from etl.kafka.config import config as kafka_config
 
 TOPIC = 'week_17_exam'
 
@@ -13,15 +10,13 @@ class KafkaProducer:
 
     _producer = Producer(kafka_config)
     
-
-
     @classmethod
     def _delivery_callback(cls, err: Optional[KafkaError], msg: Message) -> None:
         pass
 
     @classmethod
     def send(cls, event_type: str, value: dict[str, Any]) -> None:
-
+        
         event = {
             "event_type": event_type,
             "data": value}

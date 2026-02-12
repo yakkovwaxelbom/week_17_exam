@@ -12,17 +12,14 @@ def main():
 
     MongoManager.connect()
 
-    data = MongoManager.get_db()
+    db = MongoManager.get_db()
 
-    while (data := ExtractFromMongo(data, settings.COLL).pagination(BACH)) != None:
+    while (data := ExtractFromMongo(db, settings.COOL).pagination(BACH)) != None:
 
         for doc in data:
             KafkaProducer.send(doc['type'], doc)
-
-        time.sleep(0.5)
-
+            time.sleep(0.5)
 
 
-    
 if __name__ == '__main__':
     main()

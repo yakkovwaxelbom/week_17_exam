@@ -1,6 +1,7 @@
-from pydantic import BaseModel, Field
+from pydantic import Field
+from pydantic_settings import BaseSettings
 
-class KafkaProducerConfig(BaseModel):
+class KafkaProducerConfig(BaseSettings):
 
     KAFKA_BOOTSTRAP_SERVERS: str = Field(
         "127.0.0.1:9092", alias="bootstrap.servers"

@@ -23,7 +23,7 @@ class MongoManager:
         path, cool = settings.DATA_PATH, settings.COOL
 
         cls.client.admin.command("ping")
-        load_init_data(path, cool)
+        load_init_data(path, cls.get_db()[cool])
         
     @classmethod
     def close(cls):
