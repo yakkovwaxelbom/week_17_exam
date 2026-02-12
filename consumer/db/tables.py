@@ -1,6 +1,6 @@
 TABLES = [
     """
-    CREATE TABLE customers (
+    CREATE TABLE IF NOT EXISTS customers (
         customerNumber INT NOT NULL,
         customerName VARCHAR(100) NOT NULL,
         contactLastName VARCHAR(50) NOT NULL,
@@ -20,7 +20,7 @@ TABLES = [
     """,
 
     """
-    CREATE TABLE orders (
+    CREATE TABLE IF NOT EXISTS orders (
         orderNumber INT NOT NULL,
         orderDate DATE NOT NULL,
         requiredDate DATE NOT NULL,
